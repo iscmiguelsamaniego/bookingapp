@@ -3,10 +3,11 @@ import { useNavigation } from '@react-navigation/native';
 
 export const useSignup = () => {
     const navigation = useNavigation();
-    const [secureEntery, setSecureEntery] = useState(true);
-
+    const [secureEntry, setSecureEntry] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const toggleSecureEntry = () => setSecureEntry((prev) => !prev);
 
     const handleGoBack = () => {
         navigation.navigate("Welcome");
@@ -17,7 +18,8 @@ export const useSignup = () => {
     };
 
     return {
-        secureEntery,
+        secureEntry,
+        toggleSecureEntry,
         email,
         password,
         handleGoBack,

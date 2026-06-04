@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         flexDirection: "row",
         alignItems: "center",
-        padding: 2,
+        padding: 12,
         marginVertical: 10,
     },
     textInput: {

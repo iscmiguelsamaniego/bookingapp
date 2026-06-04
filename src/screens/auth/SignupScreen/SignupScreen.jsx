@@ -3,6 +3,7 @@ import {
 } from "react-native";
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSignup } from "./useSignup";
 import { colors } from '../../styles/BaseStyles';
 import styles from './SignupStyles';
@@ -15,7 +16,8 @@ import phoneLogo from "../../../assets/images/smartphone.png";
 const SignupScreen = () => {
 
     const {
-        secureEntery,
+        secureEntry,
+        toggleSecureEntry,
         email,
         password,
         handleGoBack,
@@ -23,7 +25,7 @@ const SignupScreen = () => {
     } = useSignup();
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
                 <Image
                     source={backLogo}
@@ -56,12 +58,10 @@ const SignupScreen = () => {
                         style={styles.textInput}
                         placeholder="Ingresa tu contraseña"
                         placeholderTextColor={colors.secondary}
-                        secureTextEntry={secureEntery}
+                        secureTextEntry={secureEntry}
                     />
                     <TouchableOpacity
-                        onPress={() => {
-                            setSecureEntery((prev) => !prev);
-                        }}
+                        onPress={toggleSecureEntry}
                     >
                         <Image
                             source={eyeLogo}
@@ -78,7 +78,6 @@ const SignupScreen = () => {
                         style={styles.textInput}
                         placeholder="Ingresa tu numero de telefono"
                         placeholderTextColor={colors.secondary}
-                        secureTextEntry={secureEntery}
                         keyboardType="phone-pad"
                     />
                 </View>
@@ -92,7 +91,7 @@ const SignupScreen = () => {
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

@@ -1,5 +1,6 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import { useWelcome } from "./useWelcome";
 import styles from "../WelcomeScreen/WelcomeStyles";
@@ -15,7 +16,7 @@ const WelcomeScreen = () => {
     } = useWelcome();
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Image source={logo} style={styles.logo} />
             <Image source={manLogo} style={styles.bannerImage} />
             <Text style={styles.title}>Lorem ipsum dolor.</Text>
@@ -41,7 +42,7 @@ const WelcomeScreen = () => {
                 />
                 <Text style={styles.googleText}>Continuar con Google</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 };
 

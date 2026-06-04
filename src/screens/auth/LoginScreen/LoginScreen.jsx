@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLogin } from './useLogin';
 import { styles } from './LoginStyles';
 import { colors } from '../../styles/BaseStyles';
@@ -36,6 +37,7 @@ const LoginScreen = () => {
 
     return (
         <ImageBackground source={background} style={styles.containerBackgroundImg}>
+           <SafeAreaView style={{ flex: 1 }}>
             <ScrollView contentContainerStyle={styles.scrollViewContainer}>
 
                 <TouchableOpacity style={styles.iconWrapper} onPress={handleGoBack}>
@@ -103,6 +105,7 @@ const LoginScreen = () => {
                 </View>
 
             </ScrollView>
+            </SafeAreaView>
         </ImageBackground>
     );
 };
