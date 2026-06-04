@@ -16,7 +16,7 @@ Developed with: **React Native** and **React Navigation**
 
 Flow
 
-<img src="https://github.com/user-attachments/assets/a52d5398-728e-4082-a52e-44438fdd7065" width="250" height="450">
+<img src="https://github.com/user-attachments/assets/fe371464-4c9a-411b-abfe-d495fa311e03" width="250" height="450">
 
 ---
 
