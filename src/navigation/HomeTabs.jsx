@@ -1,17 +1,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import HomeScreen from '../screens/home/HomeScreen/HomeScreen';
-import styles from './HomeTabsStyles'; // Importamos sus estilos nativos limpios
+import CalendarScreen from '../screens/home/CalendarScreen/CalendarScreen';
+import styles from './HomeTabsStyles';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
-
-// Placeholders requeridos para armar y cablear el menú de 4 elementos por el momento
-const CalendarPlaceholder = () => (
-    <View style={styles.placeholderContainer}>
-        <Text style={styles.placeholderText}>Calendario de Servicios Solicitados</Text>
-    </View>
-);
 
 const InboxPlaceholder = () => (
     <View style={styles.placeholderContainer}>
@@ -26,14 +22,19 @@ const ProfilePlaceholder = () => (
 );
 
 export const HomeTabs = () => {
+    const insets = useSafeAreaInsets();
+
     return (
         <Tab.Navigator
             initialRouteName="HomeTab"
             screenOptions={{
                 headerShown: false,
-                tabBarActiveTintColor: '#0056C6', // Tu azul de acción destacado en las imágenes
-                tabBarInactiveTintColor: '#AEB5BB', // El gris secundario nativo
-                tabBarStyle: styles.tabBar, // Aplicamos el estilo premium flotante
+                tabBarActiveTintColor: '#1E90FF', // Coherente con el azul moderno de tu pantalla principal
+                tabBarInactiveTintColor: '#AEB5BB',
+                tabBarStyle: [
+                    styles.tabBar,
+                    { height: 64 + insets.bottom, paddingBottom: insets.bottom > 0 ? insets.bottom : 10 }
+                ],
                 tabBarLabelStyle: styles.tabBarLabel,
                 tabBarItemStyle: styles.tabBarItem,
             }}
@@ -43,28 +44,40 @@ export const HomeTabs = () => {
                 component={HomeScreen}
                 options={{
                     tabBarLabel: 'Home',
-                    tabBarIcon: ({ focused }) => (
-                        <Text style={[styles.tabIcon, focused && styles.tabIconActive]}>🏠</Text>
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'home' : 'home-outline'}
+                            size={22}
+                            color={color}
+                        />
                     )
                 }}
             />
             <Tab.Screen
                 name="CalendarTab"
-                component={CalendarPlaceholder}
+                component={CalendarScreen}
                 options={{
                     tabBarLabel: 'Citas',
-                    tabBarIcon: ({ focused }) => (
-                        <Text style={[styles.tabIcon, focused && styles.tabIconActive]}>📅</Text>
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'calendar' : 'calendar-outline'}
+                            size={22}
+                            color={color}
+                        />
                     )
                 }}
             />
             <Tab.Screen
-                name="InboxTab"
+                name="ChatTab"
                 component={InboxPlaceholder}
                 options={{
-                    tabBarLabel: 'Inbox',
-                    tabBarIcon: ({ focused }) => (
-                        <Text style={[styles.tabIcon, focused && styles.tabIconActive]}>💬</Text>
+                    tabBarLabel: 'Mensajes',
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'chatbubbles' : 'chatbubbles-outline'}
+                            size={22}
+                            color={color}
+                        />
                     )
                 }}
             />
@@ -73,8 +86,12 @@ export const HomeTabs = () => {
                 component={ProfilePlaceholder}
                 options={{
                     tabBarLabel: 'Perfil',
-                    tabBarIcon: ({ focused }) => (
-                        <Text style={[styles.tabIcon, focused && styles.tabIconActive]}>👤</Text>
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'person' : 'person-outline'}
+                            size={22}
+                            color={color}
+                        />
                     )
                 }}
             />

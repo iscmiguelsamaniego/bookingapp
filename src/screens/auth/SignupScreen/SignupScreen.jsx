@@ -7,11 +7,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSignup } from "./useSignup";
 import { colors } from '../../styles/BaseStyles';
 import styles from './SignupStyles';
-import backLogo from "../../../assets/images/arrow_back.png";
-import emailLogo from "../../../assets/images/email.png";
-import lockLogo from "../../../assets/images/lock.png";
-import eyeLogo from "../../../assets/images/eye.png";
-import phoneLogo from "../../../assets/images/smartphone.png";
+import backLogo from "../../../../assets/images/arrow_back.png";
+import emailLogo from "../../../../assets/images/email.png";
+import lockLogo from "../../../../assets/images/lock.png";
+import eyeLogo from "../../../../assets/images/eye.png";
+import phoneLogo from "../../../../assets/images/smartphone.png";
 
 const SignupScreen = () => {
 

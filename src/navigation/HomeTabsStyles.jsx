@@ -2,20 +2,17 @@ import { StyleSheet, Platform } from 'react-native';
 import { colors, fonts } from '../screens/styles/BaseStyles';
 
 const styles = StyleSheet.create({
-    // ESTILO DE BARRA FLOTANTE (Inspirado fielmente en bookingconcept3_2.jpg)
     tabBar: {
         position: 'absolute',
-        bottom: 16, // Lo separamos de la base para que flote de manera premium
+        bottom: 16,
         left: 16,
         right: 16,
         backgroundColor: '#FFFFFF',
-        borderRadius: 24, // Esquinas súper redondeadas estilo cápsula
+        borderRadius: 24,
         height: 64,
-        paddingBottom: Platform.OS === 'ios' ? 0 : 8, // Ajuste para que los textos no se corten
+        paddingBottom: Platform.OS === 'ios' ? 0 : 8,
         paddingTop: 8,
-        borderTopWidth: 0, // Quitamos la línea rígida gris que trae por defecto
-
-        // Sombras nativas de alta fidelidad para simular el relieve sobre la galería de atrás
+        borderTopWidth: 0,
         elevation: 8,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
@@ -36,10 +33,9 @@ const styles = StyleSheet.create({
     },
     tabIconActive: {
         opacity: 1,
-        transform: [{ scale: 1.1 }], // Un sutil toque interactivo al estar seleccionado
+        transform: [{ scale: 1.1 }],
     },
 
-    // Estilos básicos para las pantallas que construirás después
     placeholderContainer: {
         flex: 1,
         justifyContent: 'center',

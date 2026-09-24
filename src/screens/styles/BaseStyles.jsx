@@ -1,12 +1,10 @@
 import { Dimensions } from 'react-native';
 
-// 1. Configuración de Dimensiones de Pantalla Nativa
 export const dimensions = {
     fullHeight: Dimensions.get('window').height,
     fullWidth: Dimensions.get('window').width,
 };
 
-// 2. Paleta de Colores Centralizada
 export const colors = {
     primary: '#45484A',
     secondary: '#AEB5BB',
@@ -18,7 +16,6 @@ export const colors = {
     orange: '#FFA500',
 };
 
-// 3. Mapeo del Sistema de Fuentes (Cargadas con react-native-asset)
 export const fonts = {
     Bold: 'Poppins-Bold',
     Light: 'Poppins-Light',

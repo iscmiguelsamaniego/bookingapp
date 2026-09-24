@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         height: dimensions.fullHeight,
     },
     logo: {
-        height: 60,
+        height: 50,
         width: 200,
         marginVertical: 15,
     },
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         height: 160,
         width: 200,
+        resizeMode: 'contain',
     },
     title: {
         fontSize: 28,

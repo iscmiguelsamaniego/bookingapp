@@ -13,11 +13,11 @@ import { useLogin } from './useLogin';
 import { styles } from './LoginStyles';
 import { colors } from '../../styles/BaseStyles';
 
-import background from "../../../assets/images/background.png";
-import backLogo from "../../../assets/images/arrow_back.png";
-import emailLogo from "../../../assets/images/email.png";
-import lockLogo from "../../../assets/images/lock.png";
-import eyeLogo from "../../../assets/images/eye.png";
+import background from "../../../../assets/images/background.png";
+import backLogo from "../../../../assets/images/arrow_back.png";
+import emailLogo from "../../../../assets/images/email.png";
+import lockLogo from "../../../../assets/images/lock.png";
+import eyeLogo from "../../../../assets/images/eye.png";
 
 const LoginScreen = () => {
 
@@ -26,8 +26,9 @@ const LoginScreen = () => {
         setEmail,
         password,
         setPassword,
-        emailError,
-        passwordError,
+        globalError,
+        //emailError,
+        //passwordError,
         secureEntry,
         toggleSecureEntry,
         handleGoBack,
@@ -37,75 +38,71 @@ const LoginScreen = () => {
 
     return (
         <ImageBackground source={background} style={styles.containerBackgroundImg}>
-           <SafeAreaView style={{ flex: 1 }}>
-            <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-
-                <TouchableOpacity style={styles.iconWrapper} onPress={handleGoBack}>
-                    <Image source={backLogo} style={styles.iconBack} />
-                </TouchableOpacity>
-
-                <View style={styles.textContainer}>
-                    <Text style={styles.headingText}>Hey,</Text>
-                    <Text style={styles.headingText}>Hola de nuevo</Text>
-                </View>
-
-                <View style={styles.formContainer}>
-                    <View style={styles.inputContainer}>
-                        <Image source={emailLogo} style={styles.iconWhite} />
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder="Ingresa tu email"
-                            placeholderTextColor={colors.white}
-                            value={email}
-                            onChangeText={setEmail}
-                            autoCapitalize="none"
-                        />
-                    </View>
-                    {emailError ? (
-                        <View style={styles.errorContainer}>
-                            <Text style={styles.errorText}>{emailError}</Text>
-                        </View>
-                    ) : null}
-
-                    <View style={styles.inputContainer}>
-                        <Image source={lockLogo} style={styles.iconWhite} />
-                        <TextInput
-                            style={styles.textInput}
-                            placeholder="Ingresa tu contraseña"
-                            placeholderTextColor={colors.white}
-                            secureTextEntry={secureEntry}
-                            value={password}
-                            onChangeText={setPassword}
-                            autoCapitalize="none"
-                        />
-                        <TouchableOpacity onPress={toggleSecureEntry}>
-                            <Image source={eyeLogo} style={styles.iconWhite} />
+            <View style={styles.overlay} >
+                <SafeAreaView style={{ flex: 1 }}>
+                    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+                        <TouchableOpacity style={styles.iconWrapper} onPress={handleGoBack}>
+                            <Image source={backLogo} style={styles.iconBack} />
                         </TouchableOpacity>
-                    </View>
-                    {passwordError ? (
-                        <View style={styles.errorContainer}>
-                            <Text style={styles.errorText}>{passwordError}</Text>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.headingText}>¡Que bueno verte!</Text>
                         </View>
-                    ) : null}
-                </View>
 
-                <TouchableOpacity>
-                    <Text style={styles.linkText}>¿Olvidaste tu contraseña?</Text>
-                </TouchableOpacity>
+                        <View style={styles.formContainer}>
+                            <View style={styles.inputContainer}>
+                                <Image source={emailLogo} style={styles.iconWhite} />
+                                <TextInput
+                                    style={styles.textInput}
+                                    placeholder="Ingresa tu email"
+                                    placeholderTextColor={colors.white}
+                                    value={email}
+                                    onChangeText={setEmail}
+                                    autoCapitalize="none"
+                                />
+                            </View>
 
-                <TouchableOpacity onPress={handleLogin} style={styles.primaryButton}>
-                    <Text style={styles.buttonText}>E n t r a r</Text>
-                </TouchableOpacity>
 
-                <View style={styles.footerContainer}>
-                    <Text style={styles.bodyText}>¿No tienes cuenta?</Text>
-                    <TouchableOpacity onPress={handleSignup}>
-                        <Text style={styles.linkText}>Registrate</Text>
-                    </TouchableOpacity>
-                </View>
+                            <View style={styles.inputContainer}>
+                                <Image source={lockLogo} style={styles.iconWhite} />
+                                <TextInput
+                                    style={styles.textInput}
+                                    placeholder="Ingresa tu contraseña"
+                                    placeholderTextColor={colors.white}
+                                    secureTextEntry={secureEntry}
+                                    value={password}
+                                    onChangeText={setPassword}
+                                    autoCapitalize="none"
+                                />
+                                <TouchableOpacity onPress={toggleSecureEntry}>
+                                    <Image source={eyeLogo} style={styles.iconWhite} />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
 
-            </ScrollView>
-            </SafeAreaView>
+                        <TouchableOpacity>
+                            <Text style={styles.linkText}>¿Olvidaste tu contraseña?</Text>
+                        </TouchableOpacity>
+
+                        {globalError ? (
+                            <View style={styles.errorContainer}>
+                                <Text style={styles.errorText}>{globalError}</Text>
+                            </View>
+                        ) : null}
+
+                        <TouchableOpacity onPress={handleLogin} style={styles.primaryButton}>
+                            <Text style={styles.buttonText}>E n t r a r</Text>
+                        </TouchableOpacity>
+
+                        <View style={styles.footerContainer}>
+                            <Text style={styles.bodyText}>¿No tienes cuenta?</Text>
+                            <TouchableOpacity onPress={handleSignup}>
+                                <Text style={styles.linkText}>Registrate</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                    </ScrollView>
+                </SafeAreaView>
+            </View>
         </ImageBackground>
     );
 };
