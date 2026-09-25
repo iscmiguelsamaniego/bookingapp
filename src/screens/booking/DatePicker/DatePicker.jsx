@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, FlatList, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDatePicker } from './useDatePicker';
 import styles from './DatePickerStyles';
 
@@ -17,7 +17,8 @@ const TIME_SLOTS = {
     afternoon: ['01:30 PM', '03:00 PM', '04:30 PM'],
 };
 
-const DatePickerScreen = ({ route, navigation }) => {
+const DatePicker = ({ route, navigation }) => {
+    const insets = useSafeAreaInsets();
     const {
         selectedDate,
         setSelectedDate,
@@ -26,9 +27,20 @@ const DatePickerScreen = ({ route, navigation }) => {
         handleContinue,
     } = useDatePicker(route, navigation);
 
+    const handleConfirmBooking = () => {
+        if (typeof handleContinue === 'function') {
+            handleContinue();
+        }
+
+        navigation.replace('Home', { screen: 'CalendarTab' });
+    };
+
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+        <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={[styles.scrollContent, { paddingBottom: 150 + insets.bottom }]}
+            >
 
                 <Text style={styles.sectionTitle}>Selecciona el día</Text>
                 <FlatList
@@ -86,17 +98,18 @@ const DatePickerScreen = ({ route, navigation }) => {
 
             </ScrollView>
 
-            <View style={styles.footer}>
+            {/* Footer con padding dinámico exclusivo para el botón en Android */}
+            <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom + 16, 24) }]}>
                 <TouchableOpacity
                     style={[styles.ctaButton, (!selectedDate || !selectedSlot) && styles.ctaDisabled]}
                     disabled={!selectedDate || !selectedSlot}
-                    onPress={handleContinue}
+                    onPress={handleConfirmBooking}
                 >
-                    <Text style={styles.ctaButtonText}>Continuar al Resumen</Text>
+                    <Text style={styles.ctaButtonText}>Confirmar</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
 };
 
-export default DatePickerScreen;
+export default DatePicker;

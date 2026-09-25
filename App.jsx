@@ -8,6 +8,7 @@ import DatePicker from './src/screens/booking/DatePicker/DatePicker';
 
 import { HomeTabs } from './src/navigation/HomeTabs';
 import ProfessionalDetailScreen from './src/screens/home/ProfessionalDetail/ProfessionalDetail';
+import CallScreen from './src/screens/home/Chat/Call'; // ◄ 1. Importa la pantalla de llamadas
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,11 @@ const App = () => {
                 <Stack.Screen
                     name="ProfessionalDetail"
                     component={ProfessionalDetailScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="CallScreen"
+                    component={CallScreen}
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen

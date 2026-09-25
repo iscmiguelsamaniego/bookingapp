@@ -1,0 +1,188 @@
+import { StyleSheet } from 'react-native';
+import { colors, fonts } from '../../styles/BaseStyles';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: colors.white,
+    },
+    headerRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 16,
+        paddingVertical: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.gray,
+    },
+    headerLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    monthTitle: {
+        fontSize: 20,
+        fontFamily: fonts.Bold,
+        color: colors.primary,
+        marginLeft: 12,
+    },
+    headerRight: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    iconButton: {
+        marginLeft: 12,
+    },
+    avatarIndicator: {
+        width: 28,
+        height: 28,
+        borderRadius: 14,
+        backgroundColor: colors.blue,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10,
+    },
+    weekContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        paddingVertical: 12,
+        paddingHorizontal: 8,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.gray,
+        backgroundColor: '#FAFAFA',
+    },
+    dayColumn: {
+        alignItems: 'center',
+    },
+    dayText: {
+        fontSize: 12,
+        fontFamily: fonts.Medium,
+        color: colors.secondary,
+        marginBottom: 6,
+    },
+    dateBadge: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    dateBadgeSelected: {
+        backgroundColor: colors.primary,
+    },
+    dateText: {
+        fontSize: 14,
+        fontFamily: fonts.Bold,
+        color: colors.primary,
+    },
+    dateTextSelected: {
+        color: colors.white,
+    },
+    gridScroll: {
+        paddingHorizontal: 10,
+        paddingBottom: 110,
+    },
+    hourRow: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        height: 70,
+        borderBottomWidth: 1,
+        borderBottomColor: '#F3F4F6',
+    },
+    hourText: {
+        width: 50,
+        fontSize: 11,
+        fontFamily: fonts.Medium,
+        color: colors.secondary,
+        paddingTop: 4,
+    },
+    daysColumnsContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    },
+    gridCell: {
+        height: '100%',
+        paddingHorizontal: 3,
+        paddingVertical: 4,
+    },
+    emptyCellBox: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: '#F9FAFB',
+        borderRadius: 6,
+    },
+    eventCard: {
+        flex: 1,
+        borderRadius: 8,
+        padding: 6,
+        justifyContent: 'flex-start',
+        elevation: 1,
+    },
+    eventText: {
+        fontSize: 10,
+        fontFamily: fonts.SemiBold,
+        lineHeight: 13,
+        color: colors.primary,
+    },
+    eventMasonry: {
+        flex: 1,
+        borderRadius: 8,
+        padding: 6,
+        backgroundColor: colors.greenLight,
+        justifyContent: 'flex-start',
+        elevation: 1,
+    },
+    eventMasonryText: {
+        fontSize: 10,
+        fontFamily: fonts.SemiBold,
+        lineHeight: 13,
+        color: colors.greenDark,
+    },
+    eventPlumbing: {
+        flex: 1,
+        borderRadius: 8,
+        padding: 6,
+        backgroundColor: colors.orangeLight,
+        justifyContent: 'flex-start',
+        elevation: 1,
+    },
+    eventPlumbingText: {
+        fontSize: 10,
+        fontFamily: fonts.SemiBold,
+        lineHeight: 13,
+        color: colors.orangeDark,
+    },
+    eventCarpentry: {
+        flex: 1,
+        borderRadius: 8,
+        padding: 6,
+        backgroundColor: colors.purpleLight,
+        justifyContent: 'flex-start',
+        elevation: 1,
+    },
+    eventCarpentryText: {
+        fontSize: 10,
+        fontFamily: fonts.SemiBold,
+        lineHeight: 13,
+        color: colors.purpleDark,
+    },
+    fabButton: {
+        position: 'absolute',
+        right: 20,
+        bottom: 85,
+        width: 56,
+        height: 56,
+        borderRadius: 18,
+        backgroundColor: colors.blue,
+        justifyContent: 'center',
+        alignItems: 'center',
+        elevation: 4,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        zIndex: 10,
+    },
+});
+
+export default styles;

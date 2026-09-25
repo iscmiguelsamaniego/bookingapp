@@ -17,6 +17,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    iconBackLarge: {
+        width: 30,
+        height: 30,
+    },
+    inputIcon: {
+        width: 25,
+        height: 25,
+    },
     textContainer: {
         marginVertical: 10,
     },
@@ -37,11 +45,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         padding: 12,
         marginVertical: 10,
+        backgroundColor: colors.white,
     },
     textInput: {
         flex: 1,
         paddingHorizontal: 10,
         fontFamily: fonts.Light,
+        color: colors.primary,
     },
     forgotPasswordText: {
         textAlign: "right",
@@ -49,17 +59,18 @@ const styles = StyleSheet.create({
         fontFamily: fonts.SemiBold,
         marginVertical: 10,
     },
-    loginButtonWrapper: {
+    primaryButton: {
         backgroundColor: colors.orange,
         borderRadius: 100,
         marginTop: 20,
     },
-    loginText: {
+    primaryButtonText: {
         color: colors.white,
         fontSize: 14,
         fontFamily: fonts.SemiBold,
         textAlign: "center",
         padding: 10,
+        letterSpacing: 1,
     },
     continueText: {
         textAlign: "center",
@@ -85,6 +96,7 @@ const styles = StyleSheet.create({
     googleText: {
         fontSize: 14,
         fontFamily: fonts.SemiBold,
+        color: colors.primary,
     },
     footerContainer: {
         flexDirection: "row",
@@ -100,6 +112,7 @@ const styles = StyleSheet.create({
     signupText: {
         color: colors.blue,
         fontFamily: fonts.Bold,
+        letterSpacing: 0.5,
     },
 });
 

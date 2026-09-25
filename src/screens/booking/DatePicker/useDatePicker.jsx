@@ -8,13 +8,7 @@ export const useDatePicker = (route, navigation) => {
 
     const handleContinue = () => {
         if (selectedDate && selectedSlot) {
-           /* navigation.navigate('BookingSummary', {
-                professionalId,
-                serviceId,
-                selectedDate,
-                selectedSlot,
-            });*/
-                                navigation.navigate('Welcome');
+            navigation.navigate('Welcome');
 
         }
     };

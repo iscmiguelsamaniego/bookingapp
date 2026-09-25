@@ -8,11 +8,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: dimensions.fullWidth,
         height: dimensions.fullHeight,
+        paddingHorizontal: 20,
     },
     logo: {
         height: 50,
         width: 200,
         marginVertical: 15,
+        resizeMode: 'contain',
     },
     bannerImage: {
         marginVertical: 10,
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     buttonsInRowContainer: {
-        padding: 10,
+        width: '100%',
+        paddingVertical: 10,
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -87,16 +90,18 @@ const styles = StyleSheet.create({
         alignItems: "center",
         padding: 10,
         gap: 10,
-        width: '95%',
+        width: '100%',
         height: 50,
     },
     googleImage: {
         height: 20,
         width: 20,
+        resizeMode: 'contain',
     },
     googleText: {
         fontSize: 14,
         fontFamily: fonts.SemiBold,
+        color: colors.primary,
     },
 });
 

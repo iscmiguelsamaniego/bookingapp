@@ -4,289 +4,276 @@ import { colors, fonts } from '../../styles/BaseStyles';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F8F9FA' // Fondo ligeramente más limpio tipo Material
+        backgroundColor: colors.backgroundLight,
     },
     scrollContainer: {
         paddingHorizontal: 20,
         paddingTop: 16,
-        paddingBottom: 40
+        paddingBottom: 40,
     },
     headerRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 16
+        marginBottom: 16,
     },
     userInfoRow: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     userTextContainer: {
-        marginLeft: 10
+        marginLeft: 10,
     },
     welcomeSubtitle: {
         fontSize: 14,
-        color: colors.secondary || '#6c757d',
+        color: colors.textMuted,
         fontFamily: fonts.Regular,
     },
     locationText: {
         fontSize: 12,
-        color: colors.primary || '#1A1C1E',
+        color: colors.textDark,
         fontFamily: fonts.Medium,
-        marginTop: 2
+        marginTop: 2,
     },
     avatarThumbnail: {
         width: 45,
         height: 45,
         borderRadius: 22.5,
-        backgroundColor: colors.gray
+        backgroundColor: colors.gray,
     },
     notificationButton: {
         width: 45,
         height: 45,
         borderRadius: 22.5,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#EAEAEA',
+        borderColor: colors.borderLight,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.05,
-        shadowRadius: 2
+        shadowRadius: 2,
     },
     bellIcon: {
         width: 20,
         height: 20,
-        resizeMode: 'contain'
-    },
-    mainHeading: {
-        fontSize: 24,
-        color: '#1A1C1E',
-        fontFamily: fonts.Bold,
-        lineHeight: 32,
-        marginBottom: 16,
-        letterSpacing: -0.3
+        resizeMode: 'contain',
     },
     searchRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
     },
     searchBarContainer: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         borderRadius: 14,
         paddingHorizontal: 14,
         height: 50,
         borderWidth: 1,
-        borderColor: '#EAEAEA',
+        borderColor: colors.borderLight,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.03,
-        shadowRadius: 3
-    },
-    iconText: {
-        fontSize: 16,
-        marginRight: 10
+        shadowRadius: 3,
     },
     searchInput: {
         flex: 1,
         fontFamily: fonts.Regular,
-        color: '#1A1C1E',
+        color: colors.textDark,
         fontSize: 14,
-        paddingVertical: 0
+        paddingVertical: 0,
     },
     filterButton: {
         width: 50,
         height: 50,
         borderRadius: 14,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 10,
         borderWidth: 1,
-        borderColor: '#EAEAEA',
+        borderColor: colors.borderLight,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.03,
-        shadowRadius: 3
-    },
-    filterIconText: {
-        fontSize: 18
+        shadowRadius: 3,
     },
     promoBanner: {
         height: 160,
         marginBottom: 24,
         borderRadius: 20,
-        overflow: 'hidden', // ◄ Obligatorio para recortar la imagen con los bordes
+        overflow: 'hidden',
         elevation: 2,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
-        shadowRadius: 6
+        shadowRadius: 6,
     },
     promoImageStyle: {
-        borderRadius: 20 // ◄ Asegura que la imagen respete las esquinas en iOS y Android
+        borderRadius: 20,
     },
     promoOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.45)', // ◄ Oscurece la foto para resaltar el texto
+        backgroundColor: colors.overlay,
         padding: 20,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     promoContent: {
-        width: '80%'
+        width: '80%',
     },
     promoTitle: {
         fontSize: 18,
         fontFamily: fonts.Bold,
-        color: '#FFFFFF', // ◄ Texto en blanco para alto contraste
-        marginBottom: 6
+        color: colors.white,
+        marginBottom: 6,
     },
     promoSubtitle: {
         fontSize: 12,
         fontFamily: fonts.Regular,
-        color: '#F3F4F6',
+        color: colors.white,
         marginBottom: 14,
-        lineHeight: 18
+        lineHeight: 18,
     },
     promoButton: {
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         paddingVertical: 10,
         paddingHorizontal: 16,
         borderRadius: 10,
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
     },
     promoButtonText: {
-        color: '#1E1B4B',
+        color: colors.orangeDark,
         fontFamily: fonts.Bold,
-        fontSize: 13
+        fontSize: 13,
     },
     sectionHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 12
+        marginBottom: 12,
     },
     sectionTitle: {
         fontSize: 18,
-        color: '#1A1C1E',
+        color: colors.textDark,
         fontFamily: fonts.Bold,
-        letterSpacing: -0.2
+        letterSpacing: -0.2,
     },
     viewAllButton: {
         fontSize: 13,
-        color: '#1E90FF',
-        fontFamily: fonts.SemiBold
+        color: colors.blue,
+        fontFamily: fonts.SemiBold,
     },
     categoryCard: {
         alignItems: 'center',
         marginRight: 14,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         paddingVertical: 12,
         paddingHorizontal: 14,
         borderRadius: 16,
         borderWidth: 1,
-        borderColor: '#EAEAEA',
+        borderColor: colors.borderLight,
         minWidth: 80,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.03,
-        shadowRadius: 2
+        shadowRadius: 2,
     },
     categoryCardSelected: {
-        backgroundColor: '#1E90FF',
-        borderColor: '#1E90FF'
+        backgroundColor: colors.blue,
+        borderColor: colors.blue,
     },
     categoryIconWrapper: {
         width: 44,
         height: 44,
         borderRadius: 12,
-        backgroundColor: '#F3F4F6',
+        backgroundColor: colors.backgroundLight,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 8
+        marginBottom: 8,
     },
     categoryIconWrapperSelected: {
-        backgroundColor: 'rgba(255, 255, 255, 0.2)'
+        backgroundColor: colors.inputBg,
     },
     categoryText: {
         fontSize: 12,
-        color: '#4B5563',
-        fontFamily: fonts.Medium
+        color: colors.textMuted,
+        fontFamily: fonts.Medium,
     },
     categoryTextSelected: {
-        color: '#FFFFFF',
-        fontFamily: fonts.Bold
+        color: colors.white,
+        fontFamily: fonts.Bold,
     },
     galleryContainer: {
-        paddingBottom: 10
+        paddingBottom: 10,
     },
     galleryCard: {
         width: 175,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         borderRadius: 16,
         marginRight: 14,
         overflow: 'hidden',
         borderWidth: 1,
-        borderColor: '#EAEAEA',
+        borderColor: colors.borderLight,
         elevation: 2,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.05,
-        shadowRadius: 6
+        shadowRadius: 6,
     },
     imageContainer: {
-        position: 'relative'
+        position: 'relative',
     },
     cardImage: {
         width: '100%',
         height: 120,
-        backgroundColor: colors.gray
+        backgroundColor: colors.gray,
     },
     ratingBadge: {
         position: 'absolute',
         top: 8,
         right: 8,
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        backgroundColor: colors.errorBg,
         paddingHorizontal: 8,
         paddingVertical: 4,
-        borderRadius: 8
+        borderRadius: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     cardRating: {
         fontSize: 11,
-        color: '#FBBF24',
-        fontFamily: fonts.Bold
+        color: colors.white,
+        fontFamily: fonts.Bold,
     },
     cardInfo: {
-        padding: 12
+        padding: 12,
     },
     cardTitle: {
         fontSize: 14,
-        color: '#1A1C1E',
+        color: colors.textDark,
         fontFamily: fonts.Bold,
-        marginBottom: 4
+        marginBottom: 4,
     },
     cardDescription: {
         fontSize: 11,
-        color: '#6B7280',
+        color: colors.textMuted,
         fontFamily: fonts.Regular,
-        lineHeight: 15
+        lineHeight: 15,
     },
     emptyText: {
-        color: '#6B7280',
+        color: colors.textMuted,
         fontFamily: fonts.Regular,
         textAlign: 'center',
         marginTop: 10,
-        fontSize: 13
-    }
+        fontSize: 13,
+    },
 });
 
 export default styles;

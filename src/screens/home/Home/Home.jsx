@@ -1,63 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Image, ScrollView, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import styles from './HomeStyles.jsx';
+
+import styles from './HomeStyles';
+import { colors } from '../../styles/BaseStyles';
+import { CATEGORIES, PROMO_DATA, PROFESSIONALS_DATA } from './Home.constants';
 import bellLogo from "../../../../assets/images/bell.png";
 
-const CATEGORIES = [
-    { id: 'electricidad', label: 'Electricidad', iconName: 'flash-outline' },
-    { id: 'remodelacion', label: 'Remodelación', iconName: 'home-outline' },
-    { id: 'plomeria', label: 'Plomería', iconName: 'water-outline' },
-    { id: 'pintura', label: 'Pintura', iconName: 'brush-outline' },
-];
-
-const PROMO_DATA = {
-    title: 'Descuento 30% En Limpieza de Casas',
-    subtitle: 'Obtenga un descuento en la limpieza de su casa y haga su casa brillar aun más.',
-};
-
-const PROFESSIONALS_DATA = [
-    {
-        id: 'p1',
-        name: 'James Carter',
-        category: 'electricidad',
-        rating: 4.9,
-        price: '$20/hr',
-        description: 'Electrical Repair. Specializes in installations and full system repairs.',
-        avatarUrl: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400'
-    },
-    {
-        id: 'p4',
-        name: 'Jacinto Flores',
-        category: 'electricidad',
-        rating: 4.5,
-        price: '$20/hr',
-        description: 'Electrical Repair. Guaranteed safety and professional diagnostic.',
-        avatarUrl: 'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=400'
-    },
-    {
-        id: 'p2',
-        name: 'Carlos Mendoza',
-        category: 'plomeria',
-        rating: 4.8,
-        price: '$20/hr',
-        description: 'Especialista en fugas de alta presión, grifos y tuberías residenciales.',
-        avatarUrl: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=200'
-    },
-    {
-        id: 'p3',
-        name: 'Sofía Reyes',
-        category: 'remodelacion',
-        rating: 4.7,
-        price: '$20/hr',
-        description: 'Remodelaciones de interiores, tablaroca y acabados modernos.',
-        avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200'
-    },
-];
-
-const HomeScreen = () => {
+const Home = () => {
     const navigation = useNavigation();
     const [selectedCategory, setSelectedCategory] = useState('electricidad');
 
@@ -78,7 +30,10 @@ const HomeScreen = () => {
                         />
                         <View style={styles.userTextContainer}>
                             <Text style={styles.welcomeSubtitle}>Hola, Antonio</Text>
-                            <Text style={styles.locationText}>📍 Metepec, Estado de México</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 2 }}>
+                                <Ionicons name="location-outline" size={14} color={colors.secondary} style={{ marginRight: 4 }} />
+                                <Text style={styles.locationText}>Miguel Hidalgo, CDMX</Text>
+                            </View>
                         </View>
                     </View>
                     <TouchableOpacity style={styles.notificationButton}>
@@ -86,21 +41,18 @@ const HomeScreen = () => {
                     </TouchableOpacity>
                 </View>
 
-                {/* Título Principal de la App */}
-                <Text style={styles.mainHeading}>Servicios profesionales para el hogar</Text>
-
-                {/* Barra de Búsqueda con Botón de Filtros */}
+                {/* Barra de Búsqueda con Icono Vectorial */}
                 <View style={styles.searchRow}>
                     <View style={styles.searchBarContainer}>
-                        <Text style={styles.iconText}>🔍</Text>
+                        <Ionicons name="search-outline" size={20} color={colors.secondary} style={{ marginRight: 8 }} />
                         <TextInput
                             style={styles.searchInput}
                             placeholder="Buscar Servicios..."
-                            placeholderTextColor="#9AA0A6"
+                            placeholderTextColor={colors.secondary}
                         />
                     </View>
                     <TouchableOpacity style={styles.filterButton}>
-                        <Text style={styles.filterIconText}>⚙️</Text>
+                        <Ionicons name="options-outline" size={20} color={colors.primary} />
                     </TouchableOpacity>
                 </View>
 
@@ -147,7 +99,7 @@ const HomeScreen = () => {
                                         <Ionicons
                                             name={item.iconName}
                                             size={22}
-                                            color={isSelected ? '#FFFFFF' : '#1E90FF'}
+                                            color={isSelected ? colors.white : colors.blue}
                                         />
                                     </View>
                                     <Text style={[styles.categoryText, isSelected && styles.categoryTextSelected]}>
@@ -184,7 +136,8 @@ const HomeScreen = () => {
                             <View style={styles.imageContainer}>
                                 <Image source={{ uri: item.avatarUrl }} style={styles.cardImage} />
                                 <View style={styles.ratingBadge}>
-                                    <Text style={styles.cardRating}>⭐ {item.rating.toFixed(1)}</Text>
+                                    <Ionicons name="star" size={12} color={colors.orange} style={{ marginRight: 4 }} />
+                                    <Text style={styles.cardRating}>{item.rating.toFixed(1)}</Text>
                                 </View>
                             </View>
                             <View style={styles.cardInfo}>
@@ -202,4 +155,4 @@ const HomeScreen = () => {
     );
 };
 
-export default HomeScreen;
+export default Home;
